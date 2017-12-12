@@ -10,27 +10,27 @@
                             
                          <?php 
 
+                         // $user = new User();
+
+                         // $user->username = "Suave The thirdd";   
+                         // $user->password = "Rico LssAST ";   
+                         // $user->first_name = "Johns";   
+                         // $user->last_name = "Doea";
+
+                         // $user->create();   
                             
-                            // $result_set = User::find_all_users();
+                         // $user = User::find_user_by_id(15);
+                         // $user->delete();
 
-                            // while ($row = mysqli_fetch_array($result_set)) {
-                            //     echo $row['username'] . "<br>";
-                            // }
+                         $user = User::find_user_by_id(14);
 
-                            // $users = User::find_all_users();
+                         $user->username = "qwert"; 
+                         $user->save();
 
-                            // foreach ($users as $user ) {
-                            //     echo $user->username . "<br>";
-                            // }
-                            // $found_user = User::find_user_by_id(2);
+                         // $user = new User();
 
-                            // $user = User::instantation($found_user);
-                            
-                            // echo $user->username;
-                            // echo "<br>";
-
-    $found_user = User::find_user_by_id(2);
-    echo  $found_user->id;
+                         // $user->username = "Suave"; 
+                         // $user->save();
 
                           ?>               
 

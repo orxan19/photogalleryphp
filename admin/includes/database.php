@@ -13,8 +13,7 @@ class Database {
 
 	public function open_db_connection(){
 
-	// $this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
+		// connect to db
 		$this->connection  = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 		if($this->connection->connect_errno){
@@ -25,7 +24,8 @@ class Database {
 	}
 
 	public function query($sql){
-
+ 				
+ 				// query to db
 			$result = $this->connection->query($sql);
 
 			$this->confirm_query($result);
@@ -53,8 +53,12 @@ class Database {
 		return $escaped_string;
 	}
 
+
+
 	public function the_insert_id(){
-		return $this->connection->insert_id;
+		// return $this->connection->insert_id;
+
+		return mysqli_insert_id($this->connection);
 	}
 }
 
