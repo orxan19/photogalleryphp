@@ -178,5 +178,15 @@ public function delete(){
 	return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 }
 
+public static function count_all(){
+
+	global $database;
+	$sql = "SELECT COUNT(*) from ". static::$db_table;
+	$result_set = $database->query($sql);
+	$row = mysqli_fetch_array($result_set);
+
+	return array_shift($row);
+}
+
 }
  ?>

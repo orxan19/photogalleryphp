@@ -55,6 +55,7 @@ $photos = Photo::find_all();
                                         <th>File Name</th>
                                         <th>Title</th>
                                         <th>Size</th>
+                                        <th>Comments</th>
                                     </tr>
                                 </thead>
 
@@ -66,16 +67,21 @@ $photos = Photo::find_all();
             <tr>
                 <td style="width:180px" class="text-center">
                     <img src="<?php echo $photo->picture_path();?>" width="154" alt="">
-                    <div class="pictures_link ">
+                    <div class="actions_link ">
                         <a href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                         <a href="edit_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="#" class="btn btn-info btn-sm ">View</a>
+                        <a href="../photo.php?id=<?php echo $photo->id ?>" class="btn btn-info btn-sm ">View</a>
                     </div>
                 </td>
                 <td><?php echo $photo->id; ?></td>
                 <td><?php echo $photo->filename; ?></td>
                 <td><?php echo $photo->title; ?></td>
                 <td><?php echo $photo->size; ?></td>
+                <td><?php 
+                    $comments = Comment::find_the_comments($photo->id);
+                     echo count($comments);
+
+                 ?> <a class="btn btn-success" href="comment_photo.php?id=<?php echo $photo->id; ?>">View Comments</a></td>
             </tr>
 
                     <?php endforeach; ?>

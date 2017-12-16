@@ -6,9 +6,16 @@
     }
 ?>
 
+<?php if(empty($_GET['id']))
+{
+    redirect("photos.php");
+} ?>
+
 <?php 
 
-$comments = Comment::find_all();
+$comments = Comment::find_the_comments($_GET['id']);
+
+
 
  ?>
         <!-- Navigation -->
@@ -40,6 +47,7 @@ $comments = Comment::find_all();
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Comments
+                         
                         </h1>
                         
                         
@@ -67,7 +75,7 @@ $comments = Comment::find_all();
                 <td><?php echo $comment->author; ?>
 
                     <div class="actions_link ">
-                        <a href="delete_comment.php?id=<?php echo $comment->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="delete_comment_photo.php?id=<?php echo $comment->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                         
                         
                     </div>

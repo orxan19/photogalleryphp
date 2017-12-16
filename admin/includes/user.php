@@ -12,7 +12,7 @@ class User extends Db_object{
 	public $first_name;
 	public $last_name;
 	public $user_image;
-	public $upload_directory = "images";
+	public $upload_directory = "images_user";
 	public $image_placeholder = "http://placehold.it/300x300&text=photo";
 
 	
@@ -51,6 +51,58 @@ public function upload_photo(){
 	
 }
 
+public function picture_path(){
+	return $this->upload_directory . DS . $this->user_image;
+}
+
+public function save(){
+	if($this->id){
+
+		$this->update();
+
+	} else {
+
+		if(!empty($this->errors)){
+			return false;
+		}
+
+		if(empty($this->filename) || empty($this->tmp_path)){
+			$this->errors[] = "the file was not available";
+			return false;
+		}
+
+		$target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->filename;
+
+		if(file_exists($target_path)){
+			$this->error[] = "The file {$this->filename} already exists";
+			return false;
+		}
+
+		if(move_uploaded_file($this->tmp_path, $target_path)){
+
+			if($this->create()){
+
+				unset($this->tmp_path);
+				return true;
+			}
+		} else {
+			$this->errors[] = "the file directory was not probably does not have permission";
+			return false;
+		}
+
+	}
+	
+}
+
+public function delete_photo(){
+
+
+	$this->delete();
+		$target_path = SITE_ROOT . DS . 'admin' . DS . $this->picture_path();
+		return unlink($target_path) ? true : false;
+
+
+}
 
 	public function image_path_and_placeholder(){
 		return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;

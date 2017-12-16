@@ -9,16 +9,17 @@
 
 <?php 
  if(empty($_GET['id'])){
-    redirect("photos.php");
+    redirect("comments.php");
  }
 
-$photo = Photo::find_by_id($_GET['id']);
+$comment = Comment::find_by_id($_GET['id']);
 
-if($photo){
-    $photo->delete_photo();
-} 
+if($comment) {
+	$comment->delete();
+	redirect("comments.php");
+}
 
-redirect("photos.php"); 
+redirect("comments.php"); 
 
 
 

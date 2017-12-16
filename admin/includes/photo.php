@@ -14,7 +14,7 @@ class Photo extends Db_object{
 
 
 	public $tmp_path;
-	public $upload_directory = "images";
+	public $upload_directory = "images_photo";
 
 	public $errors = array();
 
