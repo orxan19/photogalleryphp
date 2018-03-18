@@ -18,6 +18,8 @@ function __construct(){
 
 }
 
+
+
 public function visitor_count(){
 	if(isset($_SESSION['count'])){
 
@@ -87,5 +89,6 @@ private function check_the_login(){
 }
 
 $session = new Session();
+$message = $session->message();
 
  ?>

@@ -38,6 +38,9 @@ $users = User::find_all();
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
+                        <p class="bg-success">
+                            <?php echo $message; ?>
+                        </p>
                         <h1 class="page-header">
                             users
                           <a href="add_user.php" class="btn btn-info pull-right">Add user</a>
@@ -73,7 +76,7 @@ $users = User::find_all();
                 <td><?php echo $user->username; ?>
 
                     <div class="actions_link ">
-                        <a href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger btn-sm delete_link">Delete</a>
                         <a href="edit_user.php?id=<?php echo $user->id; ?>" class="btn btn-sm btn-warning">Edit</a>
                         
                     </div>

@@ -4,5 +4,17 @@
 }
 
 .photo{
+
 	width: 100% !important;
+}
+
+
+.yes {
+	background-color: #000 !important;
+	color: #FFFFFF;
+}
+
+.yes:hover {
+	background: #fff;
+	color: #000;
 }

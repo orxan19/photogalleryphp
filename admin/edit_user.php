@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php include("includes/photo_modal.php"); ?>
 <?php 
     if(!$session->is_signed_in()){
 
@@ -23,13 +24,17 @@ $user = User::find_by_id($_GET['id']);
 
         if(empty($_FILES['user_image'])){
           $user->save();
+          $session->message("The user has been updaterd");
+          redirect("users.php");
+
         } else{
           $user->set_file($_FILES['user_image']);
           $user->upload_photo();
           $user->save();
         }
 
-        redirect("edit_user.php?id={$user->id}");   
+        // redirect("edit_user.php?id={$user->id}");   
+        redirect("users.php");   
          
       }
 
@@ -37,6 +42,7 @@ $user = User::find_by_id($_GET['id']);
 
 
  ?>
+
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,9 +75,11 @@ $user = User::find_by_id($_GET['id']);
                             <small>Subheading</small>
                         </h1>
                         
-                        <div class="col-md-4">
+                        <div class="col-md-6 user_image_box">
                           
-                           <img class="img-responsive" src="<?php echo $user->image_path_and_placeholder();?>" alt="">   
+      <a href="" data-toggle="modal" data-target="#photo-library">
+        <img class="img-responsive" width="100%" src="<?php echo $user->image_path_and_placeholder();?>" alt="">
+      </a>  
 
                         </div>
                         
@@ -113,9 +121,9 @@ $user = User::find_by_id($_GET['id']);
                           </div>
 
                           <div class="form-group">
-                           
-                              <input type="submit" name="update" value="Update" class="btn btn-info pull-right">
-                              <a href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-primary"> Delete</a>
+                           <a id="user-id" href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-primary"> Delete</a>
+                         <input type="submit" name="update" value="Update" class="btn btn-info pull-right">
+                         
                           </div>
                           
                         </div>

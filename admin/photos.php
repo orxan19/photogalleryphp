@@ -40,7 +40,7 @@ $photos = Photo::find_all();
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Photos
-                            <small>Subheading</small>
+                            <small>Cool mann</small>
                         </h1>
                         
                         
@@ -68,7 +68,7 @@ $photos = Photo::find_all();
                 <td style="width:180px" class="text-center">
                     <img src="<?php echo $photo->picture_path();?>" width="154" alt="">
                     <div class="actions_link ">
-                        <a href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+<a href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-sm delete_link">Delete</a>
                         <a href="edit_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-sm btn-warning">Edit</a>
                         <a href="../photo.php?id=<?php echo $photo->id ?>" class="btn btn-info btn-sm ">View</a>
                     </div>

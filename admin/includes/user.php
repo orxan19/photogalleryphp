@@ -127,7 +127,38 @@ public function delete_photo(){
 
 	}
 
+public function ajax_save_user_image($user_image, $user_id){
+
+	global $database;
+
+	$user_image = $database->escape_string($user_image);
+	$user_id = $database->escape_string($user_id);
+
+	$this->user_image = $user_image;
+	$this->id = $user_id;
+
+	$sql = "UPDATE ".self::$db_table. " SET user_image = '{$this->user_image}' ";
+	$sql .= " WHERE id = {$this->id} ";
+
+	$update_image = $database->query($sql);
+
+	echo $this->image_path_and_placeholder();
+}
+
+public static function display_sidebar_data($photo_id){
+	$user = User::find_by_id($photo_id);
+
+	$output = "<a class='thumbnail' href='#'><img src='{$user->picture_path()}' alt=''></a>";
+	$output .= "<h4 class='h4'>{$user->user_image}</h4>";
+	$output .= "<h4 class='h4'>{$user->username}</h4>";
+	$output .= "<h4 class='h4'>{$user->first_name}</h4>";
+	$output .= "<h4 class='h4'>{$user->last_name}</h4>";
+ 	
+ 	echo $output;
+}
 
 } // End of user class
 
  ?>
+
+ 

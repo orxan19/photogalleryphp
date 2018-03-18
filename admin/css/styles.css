@@ -1,3 +1,7 @@
+
+
+
+
 .photo-info-box {
 
  border: 1px solid #e5e5e5;
@@ -43,4 +47,43 @@ border-top: 1px solid #ddd;
 background-color: #ddd;
 padding: 10px;
 
+}
+/* Modal */
+.modal-dialog {
+width: 90% !important;
+
+
+
+}
+
+.modal-body {
+overflow: auto;
+height: 500px !important;
+min-height: 300px !important;
+}
+
+.modal_thumbnails {
+
+    width: 150px;
+    height: 100px !important;
+}
+
+#set_user_image {
+
+margin:10px;
+
+}
+
+
+#modal_sidebar {
+
+position: fixed !important;
+
+}
+
+
+/*LOgin pagee*/
+
+#login-id{
+	color: #fff;
 }

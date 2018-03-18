@@ -1,7 +1,5 @@
 <?php 
-	
-
-  define('DS', DIRECTORY_SEPARATOR);
+	define('DS', DIRECTORY_SEPARATOR);
 	define('INCLUDES_PATH', "C:". DS ."x" . "a"."mpp". DS ."htdocs". DS ."photo".DS."admin".DS."includes");
 	define('SITE_ROOT', "C:". DS ."x" . "a" . "mpp". DS ."htdocs". DS ."photo");
 	
@@ -14,6 +12,7 @@
 	require_once("photo.php");
 	require_once("comment.php");
 	require_once("session.php");
+	require_once("paginate.php");
 
 
 

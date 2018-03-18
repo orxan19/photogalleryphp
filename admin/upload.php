@@ -3,10 +3,10 @@
 
 <?php 
     $message = "";
-    if(isset($_POST['submit'])){
+    if(isset($_FILES['file'])){
         $photo = new Photo();
         $photo->title = $_POST['title'];
-        $photo->set_file($_FILES['file_upload']);
+        $photo->set_file($_FILES['file']);
 
         if($photo->save()){
             $message = "Photo uploaded successfully";
@@ -47,24 +47,32 @@
                         <h1 class="page-header">
                             Uploads
                         </h1>
-                        
-                        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
 
-                         <?php echo $message; ?>   
-                        <form action="upload.php" method="post" enctype="multipart/form-data">
-                                 
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="title">
-                            </div>
-
-                            <div class="form-group">
-                                <input type="file" name="file_upload" >
-                            </div>
-
-                            <input type="submit" class="btn btn-info" name="submit">
-                        </form>
+                 <?php echo $message; ?>   
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                         
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title">
                     </div>
+
+                    <div class="form-group">
+                        <input type="file" name="file" >
                     </div>
+
+                    <input type="submit" class="btn btn-info" name="submit">
+                </form>
+            </div>
+        </div><!--end of row -->
+        <div class="row" style="padding-top: 20px">
+            <div class="col-lg-5">
+                <form action="upload.php" class="dropzone" id="myAwesomeDropzone" style="border: 6px dashed #0087F7; border-radius: 5px; background: white"></form>
+            </div>
+
+        </div>
+        </div>
+
                 </div>
                 <!-- /.row -->
 

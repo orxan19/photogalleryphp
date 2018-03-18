@@ -6,14 +6,14 @@ protected static $db_table = "users";
 public $errors = array();
 
   public	$upload_errors_array = array(
-	UPLOAD_ERR_OK 				=> "UPLOAD_ERR_OK",
-	UPLOAD_ERR_INI_SIZE 	=> "UPLOAD_ERR_INI_SIZE",
-	UPLOAD_ERR_FORM_SIZE 	=> "UPLOAD_ERR_FORM_SIZE",
-	UPLOAD_ERR_PARTIAL 		=> "UPLOAD_ERR_PARTIAL",
-	UPLOAD_ERR_NO_FILE 		=> "This is empty <h3 style='display: inline'>&#8593;</h3>",
-	UPLOAD_ERR_NO_TMP_DIR => "UPLOAD_ERR_NO_TMP_DIR",
-	UPLOAD_ERR_CANT_WRITE => "UPLOAD_ERR_CANT_WRITE",
-	UPLOAD_ERR_EXTENSION 	=> "UPLOAD_ERR_EXTENSION"
+		UPLOAD_ERR_OK 				=> "SUCCESS",
+		UPLOAD_ERR_INI_SIZE 	=> "UPLOAD_ERR_INI_SIZE",
+		UPLOAD_ERR_FORM_SIZE 	=> "UPLOAD_ERR_FORM_SIZE",
+		UPLOAD_ERR_PARTIAL 		=> "UPLOAD_ERR_PARTIAL",
+		UPLOAD_ERR_NO_FILE 		=> "This is empty <h3 style='display: inline'>&#8593;</h3>",
+		UPLOAD_ERR_NO_TMP_DIR => "UPLOAD_ERR_NO_TMP_DIR",
+		UPLOAD_ERR_CANT_WRITE => "UPLOAD_ERR_CANT_WRITE",
+		UPLOAD_ERR_EXTENSION 	=> "UPLOAD_ERR_EXTENSION"
 	);
 
 
@@ -151,6 +151,8 @@ public function save(){
 public function update(){
 	global $database;
 	$properties = $this->clean_properties();
+
+
 
 	$properties_pairs = array();
 	
